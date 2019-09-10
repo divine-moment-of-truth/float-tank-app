@@ -1,0 +1,41 @@
+<mat-card>
+  <div class="center-section">
+    <h1>Book a float</h1>
+
+    <p>
+      Select a date on the calendar below and we will display all the available float times
+    </p>
+
+    <form (submit)="getTankAvailabilityByDate()" [formGroup]="bookingForm">
+      <div class="calendar-wrapper">
+        <mat-calendar [selected]="selectedDate" (selectedChange)="onSelect($event)"></mat-calendar>
+      </div>
+      <mat-form-field class="invisible-field">
+        <input matInput formControlName="enteredDate">
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Get availability</button>
+    </form>
+  </div>
+</mat-card>
+
+<mat-card *ngIf="dateSelectionButtonPressed">
+  <mat-list>
+    <mat-list-item>{{ displayDate }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <div class="tank-text">Tank 1</div>
+    </mat-list-item>
+    <mat-list-item *ngFor="let session of tankAvailability; let i = index">
+      <div class="tank-one" *ngIf="session.tankNumber == 1">
+          <button *ngIf="session.sessionOne === false" mat-raised-button color="primary" (click)="bookSession(session.id, session.date, session.tankNumber, session.sessionOne = true, session.sessionTwo, session.sessionThree, session.sessionFour, session.sessionFive, '07.00')">07.00</button>
+          <button *ngIf="session.sessionTwo === false" mat-raised-button color="primary" (click)="bookSession(session.id, session.date, session.tankNumber, session.sessionOne, session.sessionTwo = true, session.sessionThree, session.sessionFour, session.sessionFive, '09.00')">09.00</button>
+          <button *ngIf="session.sessionThree === false" mat-raised-button color="primary" (click)="bookSession(session.id, session.date, session.tankNumber, session.sessionOne, session.sessionTwo, session.sessionThree = true, session.sessionFour, session.sessionFive, '11.00')">11.00</button>
+          <button *ngIf="session.sessionFour === false" mat-raised-button color="primary" (click)="bookSession(session.id, session.date, session.tankNumber, session.sessionOne, session.sessionTwo, session.sessionThree, session.sessionFour = true, session.sessionFive, '13.00')">13.00</button>
+          <button *ngIf="session.sessionFive === false" mat-raised-button color="primary" (click)="bookSession(session.id, session.date, session.tankNumber, session.sessionOne, session.sessionTwo, session.sessionThree, session.sessionFour, session.sessionFive = true, '15.00')">15.00</button>
+          <!--<button *ngIf="session.sessionSix === false" mat-raised-button color="primary" (click)="bookSession(session.sessionSix, session.id)">17.00</button>
+          <button *ngIf="session.sessionSeven === false" mat-raised-button color="primary" (click)="bookSession(session.sessionSeven, session.id)">19.00</button>-->
+        </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+</mat-card>

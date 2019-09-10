@@ -1,0 +1,73 @@
+<mat-toolbar color="primary">
+  <span>
+    <a routerLink="/">Rest</a>
+  </span>
+  <span class="spacer"></span>
+  <ul>
+    <li>
+      <a mat-button [matMenuTriggerFor]="floating">Floating<mat-icon>arrow_drop_down</mat-icon></a>
+      <!--<a mat-button>Floating Explained</a><mat-icon>keyboard_arrow_down</mat-icon>-->
+      <mat-menu #floating="matMenu">
+        <button mat-menu-item [routerLink]="['/floating']" routerLinkActive="router-link-active">What is floating?</button>
+        <button mat-menu-item>Benefits</button>
+        <button mat-menu-item>Our float pods</button>
+        <button mat-menu-item>What to expect</button>
+        <button mat-menu-item>Prices</button>
+        <button mat-menu-item>FAQ</button>
+      </mat-menu>
+    </li>
+    <li>
+      <a mat-button [matMenuTriggerFor]="infraredsauna">Infra Red Sauna<mat-icon>arrow_drop_down</mat-icon></a>
+      <mat-menu #infraredsauna="matMenu">
+        <button mat-menu-item [routerLink]="['/infra-red-sauna']" routerLinkActive="router-link-active">What is an infra red sauna?</button>
+        <button mat-menu-item>Benefits</button>
+        <button mat-menu-item>Our sauna's</button>
+        <button mat-menu-item>What to expect</button>
+        <button mat-menu-item>Prices</button>
+        <button mat-menu-item>FAQ</button>
+      </mat-menu>
+    </li>
+    <li>
+      <a mat-button [matMenuTriggerFor]="treatments">Treatments<mat-icon>arrow_drop_down</mat-icon></a>
+      <mat-menu #treatments="matMenu">
+        <button mat-menu-item>Swedish massage</button>
+        <button mat-menu-item>Indian head massage</button>
+        <button mat-menu-item>Reflexology</button>
+        <button mat-menu-item>Hopi - ear candling</button>
+        <button mat-menu-item>Reiki</button>
+      </mat-menu>
+    </li>
+    <li>
+      <a mat-button [matMenuTriggerFor]="meditation">Meditation<mat-icon>arrow_drop_down</mat-icon></a>
+      <mat-menu #meditation="matMenu">
+        <button mat-menu-item>Yoga Nidra</button>
+        <button mat-menu-item>What to expect</button>
+        <button mat-menu-item>Prices</button>
+        <button mat-menu-item>FAQ</button>
+      </mat-menu>
+    </li>
+    <li>
+      <a mat-button [matMenuTriggerFor]="retreats">Retreats<mat-icon>arrow_drop_down</mat-icon></a>
+      <mat-menu #retreats="matMenu">
+        <button mat-menu-item>#</button>
+        <button mat-menu-item>#</button>
+        <button mat-menu-item>#</button>
+        <button mat-menu-item>#</button>
+      </mat-menu>
+    </li>
+    <li>
+      <a mat-button [matMenuTriggerFor]="pregnancy">Pregnancy<mat-icon>arrow_drop_down</mat-icon></a>
+      <mat-menu #pregnancy="matMenu">
+        <button mat-menu-item>#</button>
+        <button mat-menu-item>#</button>
+        <button mat-menu-item>#</button>
+        <button mat-menu-item>#</button>
+      </mat-menu>
+    </li>
+    <li>
+      <button mat-raised-button routerLink="/booking" color="warn">Book a Float</button>
+    </li>
+  </ul>
+</mat-toolbar>
+
+

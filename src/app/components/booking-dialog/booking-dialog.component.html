@@ -1,0 +1,107 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <!--<span>Tank Booking</span>-->
+    <span class="example-spacer"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onCancel()">
+      <mat-icon aria-hidden="false">close</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="booking-dialog-date-confirm" *ngIf="dialogPage===1">
+  <mat-list>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <h4>Checkout</h4>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <h3 matLine>1 Hour Float Session</h3>
+      <p matLine>{{ selectedSession }}</p>
+      <button mat-button>
+        <p>£30</p>
+        <!--<mat-icon matListIcon>close</mat-icon>-->
+      </button>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+  <div class="button-row">
+    <!-- <button mat-raised-button color="primary" (click)="nextPage()" type="submit">Next</button>
+    <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button> -->
+    <div class="center-section">
+      <div id="paypal-checkout-btn"></div>
+    </div>
+  </div>
+</div>
+
+
+<div class="booking-dialog-user-details" *ngIf="dialogPage===2">
+    <mat-list>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <h4>Please enter your details:</h4>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+    <form [formGroup]="formDialog" class="normal-form">
+      <mat-grid-list cols="2" rowHeight="300px">
+        <mat-grid-tile [colspan]="1">
+          <div class="controls-container">
+            <input type="hidden" formControlName="id" />
+            <mat-form-field>
+              <input formControlName="firstName" matInput placeholder="First Name">
+              <mat-error>This field is mandatory.</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input  formControlName="lastName" matInput placeholder="Last Name">
+              <mat-error>This field is mandatory.</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input formControlName="email" matInput placeholder="Email" />
+              <mat-error>Invalid email address.</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input formControlName="mobile" matInput placeholder="Mobile" />
+              <mat-error>This field is mandatory.</mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1">
+          <div class="controls-container">
+            <mat-form-field>
+              <input formControlName="address" matInput placeholder="House number and street name" />
+            </mat-form-field>
+            <mat-form-field>
+              <input formControlName="town" matInput placeholder="Town" />
+            </mat-form-field>
+            <mat-form-field>
+              <input formControlName="postcode" matInput placeholder="Postcode" />
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <div class="button-row">
+        <!--<button mat-raised-button color="primary" (click)="openTestDialog()" type="submit" [disabled]="formDialog.invalid">Purchase</button>-->
+        <button mat-raised-button color="primary" (click)="nextPage()" type="submit">Next</button>
+        <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
+</div>
+
+
+<div class="booking-dialog-paypal" *ngIf="dialogPage===3">
+  <mat-list>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <h4>Paypal Section</h4>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+  <mat-list>
+    <div class="center-section">
+      <input type="number" [(ngModel)]="finalAmount" />
+      <div id="paypal-checkout-btn"></div>
+      <!--<button mat-raised-button routerLink="/booking" color="warn">Paypal Submit</button>-->
+    </div>
+  </mat-list>
+</div>
