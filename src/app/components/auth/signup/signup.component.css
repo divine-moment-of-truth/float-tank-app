@@ -1,0 +1,32 @@
+mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+mat-card-title, mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+/* .center-section {
+  text-align: center;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  width: 50%;
+  margin: auto;
+} */
+
+:host {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+}

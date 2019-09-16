@@ -64,8 +64,17 @@
         <button mat-menu-item>#</button>
       </mat-menu>
     </li>
+    <li *ngIf="!userIsAuthenticated">
+      <button mat-button [routerLink]="['/login']" routerLinkActive="mat-accent">Login</button>
+    </li>
+    <li *ngIf="!userIsAuthenticated">
+      <button mat-button [routerLink]="['/signup']" routerLinkActive="mat-accent">Signup</button>
+    </li>
+    <li *ngIf="userIsAuthenticated">
+      <button mat-button>Logout</button>
+    </li>
     <li>
-      <button mat-raised-button routerLink="/booking" color="warn">Book a Float</button>
+      <button mat-raised-button [routerLink]="['/booking']" color="warn">Book a Float</button>
     </li>
   </ul>
 </mat-toolbar>

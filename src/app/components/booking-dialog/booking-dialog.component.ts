@@ -1,9 +1,7 @@
 import { Component, Inject, OnInit, AfterViewChecked } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-
-import { BookingTestComponent } from '../booking-test/booking-test.component';
 import { MatDialog, MatDialogConfig } from '@angular/material';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { IPayPalConfig, ICreateOrderRequest, PayPalScriptService } from 'ngx-paypal';
 import { Tank } from 'src/app/models/tank.model';

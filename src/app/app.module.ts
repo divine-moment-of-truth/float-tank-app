@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from './shared/material.module';
 import { AppRoutingModule } from './app.routing.module';
@@ -14,7 +14,13 @@ import { BookingComponent } from './components/booking/booking.component';
 import { BookingDialogComponent } from './components/booking-dialog/booking-dialog.component';
 import { FloatingComponent} from './components/floating/floating.component';
 import { InfraRedSaunaComponent} from './components/infra-red-sauna/infra-red-sauna.component';
-import { PaypalComponent } from './components/paypal/paypal.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
+import { AuthInterceptor } from './auth/auth-interceptor';
+import { WelcomePageComponent } from './components/auth/welcome-page/welcome-page.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { BenefitsComponent} from './components/floating/benefits.component';
+import { PodsComponent} from './components/floating/pods.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +30,13 @@ import { PaypalComponent } from './components/paypal/paypal.component';
     BookingComponent,
     FloatingComponent,
     InfraRedSaunaComponent,
-    PaypalComponent,
-    BookingDialogComponent
+    BookingDialogComponent,
+    LoginComponent,
+    SignupComponent,
+    WelcomePageComponent,
+    MainNavComponent,
+    BenefitsComponent,
+    PodsComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +48,7 @@ import { PaypalComponent } from './components/paypal/paypal.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent],
   entryComponents: [BookingDialogComponent]
 })
