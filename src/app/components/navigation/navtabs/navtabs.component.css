@@ -1,0 +1,43 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+li {
+  display: inline;
+  margin-left: 0.1rem;
+  font-size: 0.8em;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  /* display: flex; */
+}
+
+.hamburger {
+  margin-right: 20px;
+}
+
+@media screen and (min-width: 1100px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .top-navigation-links {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .book-btn {
+    display: none;
+  }
+}

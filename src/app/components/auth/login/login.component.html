@@ -16,7 +16,8 @@
         </mat-form-field>
       </p>
       <div class="button">
-        <button mat-raised-button color="warn" type="submit">Login</button>
+        <button mat-raised-button color="warn" type="submit" *ngIf="!isLoading">Login</button>
+        <button mat-stroked-button color="primary" [routerLink]="['/signup']">Signup</button>
       </div>
     </form>
   </mat-card-content>

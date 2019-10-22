@@ -6,7 +6,12 @@ const userSchemaModel = mongoose.Schema({
   name: { type: String, require: true },
   address: { type: String },
   telephone: { type: String },
-  password: { type: String, require: true }
+  password: { type: String, require: true },
+  bookings: [{
+    tank: { type: String },
+    date: { type: String },
+    notes: { type: String }
+  }]
 });
 
 userSchemaModel.plugin(uniqueValidator);

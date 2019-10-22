@@ -1,6 +1,4 @@
-<div class="navtabs-container">
-
-  <mat-toolbar color="primary">
+<mat-toolbar color="primary">
     <span>
       <a routerLink="/">Rest</a>
     </span>
@@ -73,7 +71,7 @@
         <button mat-button [routerLink]="['/signup']" routerLinkActive="mat-accent">Signup</button>
       </li>
       <li *ngIf="userIsAuthenticated">
-        <button mat-button (click)="onLogout()">Logout</button>
+        <button mat-button>Logout</button>
       </li>
       <li>
         <button mat-raised-button [routerLink]="['/booking']" color="warn">Book a Float</button>
@@ -81,35 +79,4 @@
     </ul>
   </mat-toolbar>
 
-</div>
 
-<mat-nav-list class="sidenav-list">
-
-    <a mat-list-item [matMenuTriggerFor]="floating">Floating<mat-icon>arrow_drop_down</mat-icon></a>
-    <mat-menu #floating="matMenu">
-      <button mat-menu-item routerLink="/floating" routerLinkActive="router-link-active">What is floating?</button>
-      <button mat-menu-item>Benefits</button>
-      <button mat-menu-item>Our float pods</button>
-      <button mat-menu-item>What to expect</button>
-      <button mat-menu-item>Prices</button>
-      <button mat-menu-item>FAQ</button>
-    </mat-menu>
-
-
-    <a mat-list-item routerLink="/signin" (click)="onToggleClose()">
-      <mat-icon>input</mat-icon>
-      <span>Login</span>
-    </a>
-
-    <a mat-list-item routerLink="/signup" (click)="onToggleClose()">
-      <mat-icon>account_circle</mat-icon>
-      <span>Signup</span>
-    </a>
-
-    <a mat-list-item routerLink="/booking" (click)="onToggleClose()">
-      <mat-icon>input</mat-icon>
-      <span>Book a Float</span>
-    </a>
-
-
-  </mat-nav-list>

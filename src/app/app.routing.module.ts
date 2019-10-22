@@ -9,6 +9,8 @@ import { PodsComponent } from './components/floating/pods.component';
 import { InfraRedSaunaComponent } from './components/infra-red-sauna/infra-red-sauna.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
+import { WelcomePageComponent } from './components/auth/welcome-page/welcome-page.component';
+import { AuthGuard } from './components/auth/auth-guard';
 
 const routes: Routes = [
   { path: '', component: MainContentComponent},
@@ -18,12 +20,14 @@ const routes: Routes = [
   { path: 'pods', component: PodsComponent },
   { path: 'infra-red-sauna', component: InfraRedSaunaComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent}
+  { path: 'signup', component: SignupComponent},
+  { path: 'welcome', component: WelcomePageComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 
 export class AppRoutingModule {}

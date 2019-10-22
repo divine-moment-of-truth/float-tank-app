@@ -4,4 +4,11 @@ export interface AuthData {
   address: string;
   telephone: string;
   password: string;
+  bookings: [
+    {
+      tank: number;
+      date: string;
+      notes: string;
+    }
+  ];
 }

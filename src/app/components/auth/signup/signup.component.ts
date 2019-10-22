@@ -9,7 +9,7 @@ import { AuthService } from '../auth.service';
 })
 
 export class SignupComponent {
-  isLoading: boolean = false;
+  isLoading = false;
 
   constructor(private authService: AuthService) {
 
@@ -19,6 +19,8 @@ export class SignupComponent {
     if (form.invalid) {
       return;
     }
-    this.authService.createUser(form.value.email, form.value.name, form.value.address, form.value.telephone, form.value.password);
+    this.isLoading = true;
+    let balls = this.authService.createUser(form.value.email, form.value.name, form.value.address, form.value.telephone, form.value.password);
+    console.log(balls + 'Hello Andrew');
   }
 }

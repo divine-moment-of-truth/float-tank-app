@@ -1,0 +1,21 @@
+.center-section {
+  text-align: center;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  width: 70%;
+  margin: auto;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+}
+
+.notes-button {
+  display: flex;
+  justify-content: flex-end;
+  /*flex: 1 1 auto*/
+}

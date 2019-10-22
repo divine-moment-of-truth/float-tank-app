@@ -1,3 +1,43 @@
-<h2>
-  Welcome User!!
-</h2>
+<div class="center-section">
+
+  <h2>
+    Welcome {{ userName }}
+  </h2>
+
+  <mat-tab-group>
+    <mat-tab label="Bookings">
+      <!-- Bookings -->
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let booking of userBookings" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ booking.date }}
+              <!-- Date - 22/09/2019 -->
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <mat-form-field>
+            <h2>Notes</h2>
+            <textarea matInput cdkTextareaAutosize>{{ booking.notes }}</textarea>
+            <!--<textarea matInput placeholder="Enter notes about session here"></textarea>-->
+          </mat-form-field>
+          <div class="notes-button">
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+          </div>
+
+        </mat-expansion-panel>
+      </mat-accordion>
+    <!-- Booking end -->
+    </mat-tab>
+
+    <mat-tab label="Your Details">
+
+    </mat-tab>
+
+    <mat-tab label="Third">
+      Content 3
+    </mat-tab>
+  </mat-tab-group>
+
+</div>

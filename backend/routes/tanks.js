@@ -1,33 +1,37 @@
 const express = require('express');
 const router = express.Router();
+const checkAuth = require('../middleware/check-auth');
 
 const TankSchemaModel = require('../models/tank');
 
 // create a tank
-router.post('', (req, res, next) => {
-  const tank = new TankSchemaModel({
-    date: '22-08-2019',
-    tankNumber: 1,
-    sessionOne: false,
-    sessionTwo: true,
-    sessionThree: false,
-    sessionFour: false,
-    sessionFive: true
-    /* date: req.body.date,
-    tankNumber: req.body.tankNumber,
-    sessionOne: req.body.sessionOne,
-    sessionTwo: req.body.sessionTwo,
-    sessionThree: req.body.sessionThree,
-    sessionFour: req.body.sessionFour,
-    sessionFive: req.body.sessionFive */
-  });
-  // save tank to database
-  tank.save().then(createdTankDetails => {
-    res.status(201).json({
-      message: 'Tank detals created successfully!',
-      tankId: createdTankDetails._id
+router.post(
+  '',
+  checkAuth,
+  (req, res, next) => {
+    const tank = new TankSchemaModel({
+      date: '18-10-2019',
+      tankNumber: 1,
+      sessionOne: false,
+      sessionTwo: true,
+      sessionThree: false,
+      sessionFour: false,
+      sessionFive: true
+      /* date: req.body.date,
+      tankNumber: req.body.tankNumber,
+      sessionOne: req.body.sessionOne,
+      sessionTwo: req.body.sessionTwo,
+      sessionThree: req.body.sessionThree,
+      sessionFour: req.body.sessionFour,
+      sessionFive: req.body.sessionFive */
     });
-  });
+    // save tank to database
+    tank.save().then(createdTankDetails => {
+      res.status(201).json({
+        message: 'Tank detals created successfully!',
+        tankId: createdTankDetails._id
+      });
+    });
 });
 
 // get all tank data

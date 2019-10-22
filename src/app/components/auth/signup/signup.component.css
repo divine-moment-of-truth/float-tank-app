@@ -30,3 +30,7 @@ mat-card-title, mat-card-content {
   display: flex;
   justify-content: flex-end;
 }
+
+.button a {
+  margin-left: 4px;
+}
